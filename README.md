@@ -22,15 +22,20 @@ Le bouton **Restaurer** efface les modifications locales et revient à l'état p
 
 > localStorage est propre à chaque navigateur : les clics du client chez lui ne changent rien pour les autres. Seule la version publiée sur GitHub fait foi.
 
-## Structure du suivi (par projet)
+## Structure du suivi (vue globale mutualisée)
 
-1. **Stratégie** : Kick-off, Audit + stratégie + plan d'action SEO
-2. **Optimisations (crédit-temps)** : 1,5 j technique, 30 contenus ou optimisations GMB, 2 j netlinking (suivi détaillé via Google Sheet)
-3. **Pilotage** : 8 visios mensuelles (hors mois de bilan), 4 bilans trimestriels (oct. 26, janv. 27, avr. 27, juil. 27)
+Calée sur le budget global des 3 entités (D-TECH RA BtoC & BtoB, D-TECH Loire, Hydrosolutions). La production est très largement mutualisée : elle est suivie une seule fois pour le groupe.
+
+1. **Stratégie** : Réunion de lancement (forfait, pour les 3 entités) · Audit & Stratégie SEO (spécifique Hydrosolutions)
+2. **Optimisations · crédit-temps** (mutualisé 3 entités) : 1,5 j technique par site, 30 contenus ou optimisations GMB au total, 30 liens locaux + 2 j de déploiement netlinking (suivi détaillé via Google Sheet)
+3. **Pilotage** (mutualisé 3 entités) : 11 suivis mensuels (hors mois de bilan) + 1 bilan de performance
+4. **Outils · reporting** (mutualisé 3 entités) : abonnement Thot SEO
+
+Chaque bloc porte une étiquette de périmètre : mutualisé, spécifique Hydrosolutions ou forfait.
 
 ## Cadence des mois
 
-Période contractuelle 01/07/2026 → 01/07/2027. Bilans aux trimestres (oct., janv., avr., juil.), visios les 8 autres mois. La barre « Tempo » et les marqueurs « Attendu » se calculent automatiquement selon la date du jour.
+Période contractuelle 01/07/2026 → 01/07/2027. Kick-off en juillet, 11 points de suivi mensuels (juil. 26 → mai 27), 1 bilan de performance (juin 27, avant la fin de période). La barre « Tempo » et les marqueurs « Attendu » se calculent automatiquement selon la date du jour.
 
 ## Netlinking
 

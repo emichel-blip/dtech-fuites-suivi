@@ -7,27 +7,14 @@
 <meta name="robots" content="noindex,nofollow">
 <style>
   :root{
-    --blue:#003D5F;
-    --blue2:#0d5c85;
-    --orange:#ED621B;
-    --sky:#6EC1E4;
-    --yellow:#fbbe2c;
-    --green:#61CE70;
-    --grey:#54595F;
-    --line:#e6ebef;
-    --bg:#f4f7f9;
-    --card:#ffffff;
+    --blue:#003D5F;--blue2:#0d5c85;--orange:#ED621B;--sky:#6EC1E4;--yellow:#fbbe2c;
+    --green:#61CE70;--grey:#54595F;--line:#e6ebef;--bg:#f4f7f9;--card:#ffffff;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    color:var(--blue);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased;
-  }
-  .wrap{max-width:1120px;margin:0 auto;padding:24px 20px 90px}
-  a{color:var(--orange);text-decoration:none}
-  a:hover{text-decoration:underline}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:var(--blue);background:var(--bg);line-height:1.5;-webkit-font-smoothing:antialiased}
+  a{color:var(--orange);text-decoration:none}a:hover{text-decoration:underline}
 
-  /* Header */
   header.top{background:linear-gradient(135deg,var(--blue),var(--blue2));color:#fff;border-radius:14px;
     padding:24px 30px;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;
     box-shadow:0 8px 24px rgba(0,61,95,.16)}
@@ -39,173 +26,130 @@
   header.top .meta{text-align:right;font-size:12.5px;color:#cfe0ea;line-height:1.7}
   header.top .meta .hl{color:#fff;font-weight:600}
 
-  /* Resources */
-  .resources{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+  .scope{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px;font-size:12.5px;color:var(--grey)}
+  .scope .chip{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:6px 13px;font-weight:600;color:var(--blue)}
+  .scope .chip small{color:var(--grey);font-weight:500}
+
+  .resources{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
   .rlink{background:var(--card);color:var(--blue);padding:7px 13px;border-radius:20px;font-size:12.5px;
     font-weight:600;border:1px solid var(--line);box-shadow:0 1px 2px rgba(0,0,0,.04)}
   .rlink:hover{background:var(--blue);color:#fff;border-color:var(--blue);text-decoration:none}
 
-  /* KPI summary */
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
-  .kpi{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;text-align:center;
-    box-shadow:0 2px 8px rgba(0,61,95,.05)}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:16px 18px;text-align:center;box-shadow:0 2px 8px rgba(0,61,95,.05)}
   .kpi .val{font-size:28px;font-weight:800;line-height:1.05}
   .kpi .lab{font-size:11.5px;color:var(--grey);margin-top:5px;font-weight:600}
-  .c-blue{color:var(--blue)}.c-orange{color:var(--orange)}.c-green{color:var(--green)}.c-grey{color:var(--grey)}
+  .c-blue{color:var(--blue)}.c-orange{color:var(--orange)}.c-green{color:var(--green)}
 
-  /* Tempo */
-  .tempo{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 22px;margin-top:14px;
-    box-shadow:0 2px 8px rgba(0,61,95,.05)}
+  .tempo{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 22px;margin-top:14px;box-shadow:0 2px 8px rgba(0,61,95,.05)}
   .tempo-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
-  .tempo-h h3{font-size:13.5px;font-weight:700}
-  .tempo-h .pc{font-weight:700;color:var(--blue);font-size:13px}
-  .tempo-bar{position:relative;height:24px;background:#eef2f5;border-radius:8px;overflow:visible}
+  .tempo-h h3{font-size:13.5px;font-weight:700}.tempo-h .pc{font-weight:700;color:var(--blue);font-size:13px}
+  .tempo-bar{position:relative;height:24px;background:#eef2f5;border-radius:8px}
   .tempo-exp{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--sky),#bfe3f2);border-radius:8px}
   .tempo-mark{position:absolute;top:0;bottom:0;width:3px;background:var(--blue);z-index:2}
-  .tempo-mark::after{content:attr(data-label);position:absolute;top:-20px;left:50%;transform:translateX(-50%);
-    font-size:10.5px;color:var(--grey);white-space:nowrap}
+  .tempo-mark::after{content:attr(data-label);position:absolute;top:-20px;left:50%;transform:translateX(-50%);font-size:10.5px;color:var(--grey);white-space:nowrap}
   .tempo-lbl{display:flex;justify-content:space-between;margin-top:7px;font-size:10.5px;color:var(--grey);flex-wrap:wrap;gap:2px}
 
-  /* Tabs */
-  .tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:22px}
-  .tab{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:14px 16px;cursor:pointer;
-    box-shadow:0 2px 8px rgba(0,61,95,.05);transition:all .15s;border-top:3px solid var(--line)}
-  .tab:hover{box-shadow:0 4px 14px rgba(0,61,95,.10)}
-  .tab.active{border-top-color:var(--orange);box-shadow:0 6px 18px rgba(0,61,95,.12)}
-  .tab .tn{font-size:13.5px;font-weight:700;color:var(--blue);line-height:1.25}
-  .tab .tc{font-size:11.5px;color:var(--grey);margin-top:2px}
-  .tab .trow{display:flex;align-items:center;justify-content:space-between;margin-top:10px}
-  .tab .tp{font-size:22px;font-weight:800;color:var(--orange)}
-  .pace{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px}
-  .pace-ok{background:rgba(97,206,112,.18);color:#2f8f42}
-  .pace-warn{background:rgba(251,190,44,.22);color:#a9781a}
-  .pace-crit{background:rgba(237,98,27,.15);color:#c1500f}
-
-  /* Project panel */
-  .panel{background:transparent;margin-top:24px}
-  .panel-head{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;
-    background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 22px;box-shadow:0 2px 8px rgba(0,61,95,.05)}
-  .panel-head .pid{display:flex;align-items:center;gap:14px}
-  .panel-head .bar{width:8px;height:42px;border-radius:5px;background:var(--orange)}
-  .panel-head h2{font-size:18px;font-weight:700}
-  .panel-head .l2{font-size:12.5px;color:var(--grey);margin-top:3px}
-  .panel-head .l2 b{color:var(--blue)}
-  .panel-head .pring{display:flex;align-items:center;gap:12px}
-  .pring svg{transform:rotate(-90deg)}
-  .pring .cap{font-size:10.5px;color:var(--grey);text-transform:uppercase;letter-spacing:.5px;font-weight:600;text-align:right}
-
-  /* Phase */
-  .phase{margin-top:22px}
-  .phase-title{display:flex;align-items:center;gap:11px;margin:0 2px 12px}
-  .phase-title .num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;
-    align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
+  /* phase */
+  .phase{margin-top:26px}
+  .phase-title{display:flex;align-items:center;gap:11px;margin:0 2px 12px;flex-wrap:wrap}
+  .phase-title .num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0}
   .phase-title h3{font-size:15.5px;font-weight:700}
   .phase-title .pp{margin-left:auto;font-size:12px;color:var(--grey);font-weight:600}
-  .phase-title .rule{display:none}
 
-  /* Deliverable card */
-  .deliv{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin-bottom:14px;
-    box-shadow:0 2px 8px rgba(0,61,95,.05)}
-  .deliv-h{display:flex;justify-content:space-between;align-items:flex-start;gap:14px}
-  .deliv-h .dt{font-size:15px;font-weight:700;color:var(--blue)}
-  .deliv-h .dt .doc{display:inline-block;margin-left:7px;font-size:11px;font-weight:600;background:#fff6ec;
-    color:#b34d13;padding:1px 8px;border-radius:10px;vertical-align:middle}
+  /* scope badge */
+  .scb{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;letter-spacing:.2px}
+  .sc-mut{background:rgba(110,193,228,.20);color:#1f7ba3}
+  .sc-hydro{background:rgba(237,98,27,.13);color:#c1500f}
+  .sc-forfait{background:#eef2f5;color:var(--grey)}
+
+  .deliv{background:var(--card);border:1px solid var(--line);border-radius:13px;padding:18px 20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,61,95,.05)}
+  .deliv-h{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;flex-wrap:wrap}
+  .deliv-h .dt{font-size:15px;font-weight:700;color:var(--blue);display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .deliv-h .dt .doc{font-size:11px;font-weight:600;background:#fff6ec;color:#b34d13;padding:1px 8px;border-radius:10px}
   .metric-val{font-size:20px;font-weight:800;color:var(--blue);white-space:nowrap}
   .metric-val small{font-size:13px;color:var(--grey);font-weight:600}
 
-  /* status pill */
   .pill{font-size:11.5px;padding:4px 11px;border-radius:999px;font-weight:700;white-space:nowrap;border:none}
-  .pill.click{cursor:pointer}
-  .pill.click:hover{filter:brightness(.96)}
+  .pill.click{cursor:pointer}.pill.click:hover{filter:brightness(.96)}
   .st-todo{background:#eef2f5;color:var(--grey)}
   .st-ongoing{background:rgba(237,98,27,.14);color:#c1500f}
   .st-done{background:rgba(97,206,112,.18);color:#2f8f42}
   .st-na{background:#eef2f5;color:#9aa4ab}
 
-  /* metric bar */
   .mbar-wrap{margin:12px 0 8px}
-  .mbar{position:relative;height:16px;background:#eef2f5;border-radius:999px;overflow:visible}
+  .mbar{position:relative;height:16px;background:#eef2f5;border-radius:999px}
   .mbar-fill{position:absolute;left:0;top:0;bottom:0;border-radius:999px}
   .fill-ok{background:linear-gradient(90deg,#3fae55,#8ad99a)}
   .fill-warn{background:linear-gradient(90deg,var(--orange),var(--yellow))}
   .fill-crit{background:linear-gradient(90deg,#c24d10,var(--orange))}
   .mbar-mark{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--blue);opacity:.55;z-index:2}
-  .mbar-mark::after{content:"Attendu";position:absolute;top:-16px;left:50%;transform:translateX(-50%);
-    font-size:9.5px;color:var(--grey);white-space:nowrap}
+  .mbar-mark::after{content:"Attendu";position:absolute;top:-16px;left:50%;transform:translateX(-50%);font-size:9.5px;color:var(--grey);white-space:nowrap}
   .mbar-foot{display:flex;justify-content:space-between;align-items:center;margin-top:9px}
   .mbar-foot .rz{font-size:12px;color:var(--grey);font-weight:600}
+  .pace{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px}
+  .pace-ok{background:rgba(97,206,112,.18);color:#2f8f42}
+  .pace-warn{background:rgba(251,190,44,.22);color:#a9781a}
+  .pace-crit{background:rgba(237,98,27,.15);color:#c1500f}
 
-  /* subitems */
-  .subs{list-style:none;margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:4px 16px}
+  .subs{list-style:none;margin-top:12px;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:4px 16px}
   .subs li{display:flex;align-items:center;gap:9px;font-size:13.5px;padding:3px 0;color:var(--blue)}
   .subs li.done .lb{text-decoration:line-through;color:#2f8f42}
   .subs input[type=checkbox]{width:17px;height:17px;accent-color:var(--green);flex-shrink:0;cursor:pointer}
-  .subs input[type=checkbox]:disabled{cursor:default}
   .subs .box{width:17px;height:17px;border:2px solid #c7cfd5;border-radius:4px;flex-shrink:0;display:inline-block}
   .subs .box.on{background:var(--green);border-color:var(--green);position:relative}
   .subs .box.on::after{content:"✓";color:#fff;font-size:12px;position:absolute;top:-3px;left:2px;font-weight:700}
 
   .cnt-edit{display:inline-flex;align-items:center;gap:6px}
-  .cnt-edit input{width:64px;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:14px;text-align:center;
-    font-weight:700;color:var(--blue)}
-  .detail-link{font-size:12.5px;font-weight:600;margin-top:10px;display:inline-block;cursor:pointer}
+  .cnt-edit input{width:64px;border:1px solid var(--line);border-radius:6px;padding:4px 8px;font-size:14px;text-align:center;font-weight:700;color:var(--blue)}
+  .detail-link{font-size:12.5px;font-weight:600;margin-top:10px;display:inline-block}
   .note{font-size:12.5px;color:var(--grey);margin-top:10px;font-style:italic}
 
-  /* admin bar */
   .admin-bar{position:fixed;bottom:18px;right:18px;display:flex;gap:8px;z-index:100}
-  .btn{padding:9px 15px;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;
-    box-shadow:0 2px 6px rgba(0,0,0,.14)}
-  .btn-primary{background:var(--orange);color:#fff}
-  .btn-primary:hover{filter:brightness(.95)}
-  .btn-sec{background:#fff;color:var(--blue);border:1px solid var(--line)}
-  .btn-sec:hover{background:#f1f4f6}
-  .gear{position:fixed;bottom:18px;left:18px;width:34px;height:34px;border-radius:50%;background:#fff;
-    border:1px solid var(--line);color:var(--grey);font-size:16px;display:flex;align-items:center;justify-content:center;
-    cursor:pointer;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,.10);opacity:.5}
+  .btn{padding:9px 15px;border:none;border-radius:8px;font-size:13px;cursor:pointer;font-weight:600;box-shadow:0 2px 6px rgba(0,0,0,.14)}
+  .btn-primary{background:var(--orange);color:#fff}.btn-primary:hover{filter:brightness(.95)}
+  .btn-sec{background:#fff;color:var(--blue);border:1px solid var(--line)}.btn-sec:hover{background:#f1f4f6}
+  .gear{position:fixed;bottom:18px;left:18px;width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--line);color:var(--grey);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:100;box-shadow:0 2px 6px rgba(0,0,0,.10);opacity:.5}
   .gear:hover{opacity:1}
-  .mode-tag{position:fixed;bottom:20px;left:60px;font-size:11.5px;color:var(--orange);font-weight:700;z-index:100;
-    background:#fff;padding:4px 10px;border-radius:999px;border:1px solid var(--line);display:none}
+  .mode-tag{position:fixed;bottom:20px;left:60px;font-size:11.5px;color:var(--orange);font-weight:700;z-index:100;background:#fff;padding:4px 10px;border-radius:999px;border:1px solid var(--line);display:none}
 
-  /* modal */
   .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;display:none;align-items:center;justify-content:center;padding:20px}
   .modal{background:#fff;border-radius:12px;padding:26px;max-width:760px;width:100%;max-height:82vh;overflow:auto}
-  .modal h2{font-size:17px;margin-bottom:10px}
-  .modal p{font-size:13.5px;color:var(--grey);margin-bottom:12px}
-  .modal textarea{width:100%;height:300px;border:1px solid var(--line);border-radius:8px;padding:12px;
-    font-family:ui-monospace,Menlo,monospace;font-size:12px}
-  .modal .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;background:#f7fafc;
-    border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-  .modal .row input{flex:1;min-width:220px;padding:8px 11px;border:1px solid var(--line);border-radius:6px;
-    font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
+  .modal h2{font-size:17px;margin-bottom:10px}.modal p{font-size:13.5px;color:var(--grey);margin-bottom:12px}
+  .modal textarea{width:100%;height:300px;border:1px solid var(--line);border-radius:8px;padding:12px;font-family:ui-monospace,Menlo,monospace;font-size:12px}
+  .modal .row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px;background:#f7fafc;border:1px solid var(--line);border-radius:8px;padding:10px 12px}
+  .modal .row input{flex:1;min-width:220px;padding:8px 11px;border:1px solid var(--line);border-radius:6px;font-family:ui-monospace,Menlo,monospace;font-size:12.5px}
   .modal-foot{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
   #pubStatus{font-size:13px;margin-bottom:10px}
 
   .foot{text-align:center;font-size:12px;color:var(--grey);margin-top:32px;padding-top:16px;border-top:1px solid var(--line)}
   .foot b{color:var(--blue)}
-
-  @media (max-width:820px){
-    .kpis{grid-template-columns:repeat(2,1fr)}
-    .tabs{grid-template-columns:1fr}
-    header.top .meta{text-align:left}
-  }
+  @media (max-width:820px){.kpis{grid-template-columns:repeat(2,1fr)}header.top .meta{text-align:left}}
 </style>
 </head>
 <body>
 
-<header class="top">
-  <div>
-    <div class="brandtag">Empirik <b>//</b> Accompagnement SEO</div>
-    <h1>Suivi de production SEO 2026 / 2027</h1>
-    <div class="sub">Groupe D-TECH Fuites &amp; Hydrosolutions · Pilotage Empirik</div>
-  </div>
-  <div class="meta">
-    <div class="hl" id="curDate"></div>
-    <div>Période contractuelle : <span class="hl">01/07/2026 → 01/07/2027</span></div>
-    <div>Interlocuteur Empirik : <span class="hl">Emmanuel Michel</span></div>
-  </div>
-</header>
+<div style="max-width:1120px;margin:0 auto;padding:24px 20px 90px">
 
-<div style="max-width:1120px;margin:0 auto;padding:20px 20px 90px">
+  <header class="top">
+    <div>
+      <div class="brandtag">Empirik <b>//</b> Accompagnement SEO</div>
+      <h1>Suivi de production SEO 2026 / 2027</h1>
+      <div class="sub">Budget global · production mutualisée sur les 3 entités · Pilotage Empirik</div>
+    </div>
+    <div class="meta">
+      <div class="hl" id="curDate"></div>
+      <div>Période contractuelle : <span class="hl">01/07/2026 → 01/07/2027</span></div>
+      <div>Interlocuteur Empirik : <span class="hl">Emmanuel Michel</span></div>
+    </div>
+  </header>
+
+  <div class="scope">
+    <span style="font-weight:600;color:var(--blue)">Périmètre :</span>
+    <span class="chip">D-TECH RA <small>BtoC &amp; BtoB</small></span>
+    <span class="chip">D-TECH Loire</span>
+    <span class="chip">Hydrosolutions</span>
+  </div>
 
   <div class="resources" id="resources"></div>
 
@@ -217,9 +161,7 @@
     <div class="tempo-lbl" id="tempoLbl"></div>
   </div>
 
-  <div class="tabs" id="tabs"></div>
-
-  <div class="panel" id="panel"></div>
+  <div id="content"></div>
 
   <div class="foot">
     Tableau de bord de production produit par <b>Empirik</b> · Contact : Emmanuel Michel.<br>
@@ -239,7 +181,7 @@
 <div class="modal-bg" id="exportModal">
   <div class="modal">
     <h2>Publier les modifications</h2>
-    <p>Clic sur <strong>Publier sur GitHub</strong> pour committer l'avancement à jour (constante PROJECTS + date).
+    <p>Clic sur <strong>Publier sur GitHub</strong> pour committer l'avancement à jour (constante PHASES_STATE + date).
     GitHub Pages met la page client à jour en ~1 min. Sinon, copie le code et colle-le à la main dans index.html.</p>
     <div class="row" id="tokenRow" style="display:none">
       <span style="font-size:13px;color:var(--grey);font-weight:600">Token GitHub :</span>
@@ -260,428 +202,262 @@
 /* =========================================================================
    CONFIGURATION
    ========================================================================= */
-const CONTRACT = { start: "2026-07-01", end: "2027-07-01" };
+const CONTRACT = { start:"2026-07-01", end:"2027-07-01" };
 const LAST_PUBLISHED = "2026-07-28";
-
-// Repo GitHub cible pour la publication en un clic (compte Empirik).
-const GITHUB_REPO  = "emichel-blip/dtech-fuites-suivi";
-const GITHUB_FILE  = "index.html";
+const GITHUB_REPO = "emichel-blip/dtech-fuites-suivi";
+const GITHUB_FILE = "index.html";
 const GITHUB_TOKEN_KEY = "dtech_github_token";
 
-/* =========================================================================
-   DONNÉES · 3 projets
-   Statuts livrable : "todo" | "ongoing" | "done" | "na"
-   Livrable "metric" : { current, target, unit }  (compteur simple)
-   Livrable "monthly" : items = cases par mois { label, done }
-   Livrable "checklist" : items = sous-tâches { label, done }
-   ========================================================================= */
-const VISIO_MONTHS = ["Août 26","Sept. 26","Nov. 26","Déc. 26","Févr. 27","Mars 27","Mai 27","Juin 27"];
-const BILAN_LABELS = ["Bilan T1 · oct. 26","Bilan T2 · janv. 27","Bilan T3 · avr. 27","Bilan T4 · juil. 27"];
-
-function makeProject(cfg){
-  return {
-    id: cfg.id, name: cfg.name, devis: cfg.devis, site: cfg.site, siteUrl: cfg.siteUrl,
-    city: cfg.city, netlinkingSheet: cfg.netlinkingSheet || "",
-    phases: [
-      { id:"strategie", num:"1", title:"Stratégie", weight:11.4, deliverables:[
-        { id:"kickoff", kind:"checklist", title:"Kick-off", doc:"Compte-rendu", status: cfg.s.kickoff, items:[
-          {label:"Réunion de lancement", done:cfg.s.kickoff==="done"},
-          {label:"Cadrage du périmètre", done:cfg.s.kickoff==="done"},
-          {label:"Brainstorming thématiques", done:cfg.s.kickoff==="done"},
-          {label:"Compte-rendu livré", done:cfg.s.kickoff==="done"}
-        ]},
-        { id:"audit", kind:"checklist", title:"Audit, stratégie & plan d'action SEO", doc:"Document d'audit", status: cfg.s.audit, items:[
-          {label:"Audit technique", done:false},
-          {label:"Audit sémantique", done:false},
-          {label:"Audit popularité (offsite)", done:false},
-          {label:"Plan d'action priorisé livré", done:false}
-        ]}
-      ]},
-      { id:"optim", num:"2", title:"Optimisations · crédit-temps", weight:69.7, deliverables:[
-        { id:"technique", kind:"metric", title:"Optimisations techniques", unit:"j", current:cfg.o.tech, target:1.5,
-          note:"1,5 jour de crédit-temps technique par site (intégrations, corrections)." },
-        { id:"contenus", kind:"metric", title:"Contenus rédigés ou optimisations GMB", unit:"", current:cfg.o.contenus, target:30 },
-        { id:"netlinking", kind:"metric", title:"Déploiement netlinking", unit:"j", current:cfg.o.netlinking, target:2,
-          sheet:true, note:"2 jours de déploiement. Suivi détaillé des liens dans le Google Sheet dédié." }
-      ]},
-      { id:"pilotage", num:"3", title:"Pilotage", weight:18.9, deliverables:[
-        { id:"visios", kind:"monthly", title:"Visios mensuelles (hors mois de bilan)", unit:"visios",
-          items: VISIO_MONTHS.map((m,i)=>({label:"Visio "+m, done: i < cfg.p.visios})) },
-        { id:"bilans", kind:"monthly", title:"Bilans trimestriels de performance", unit:"bilans", doc:"Note de synthèse",
-          items: BILAN_LABELS.map((m,i)=>({label:m, done: i < cfg.p.bilans})) }
-      ]}
-    ]
-  };
-}
-
-const PROJECTS = [
-  makeProject({
-    id:"ara", name:"D-TECH Fuites Auvergne Rhône-Alpes", devis:"D262703",
-    site:"detecteur-de-fuite-d-eau.com", siteUrl:"https://detecteur-de-fuite-d-eau.com/", city:"Chasse-sur-Rhône (38)",
-    netlinkingSheet:"",
-    s:{ kickoff:"done", audit:"ongoing" },
-    o:{ tech:0, contenus:0, netlinking:0 },
-    p:{ visios:1, bilans:0 }
-  }),
-  makeProject({
-    id:"loire", name:"D-TECH Fuites Loire", devis:"D262704",
-    site:"detecteur-de-fuite-d-eau.com", siteUrl:"https://detecteur-de-fuite-d-eau.com/", city:"Andrézieux-Bouthéon (42)",
-    netlinkingSheet:"",
-    s:{ kickoff:"done", audit:"ongoing" },
-    o:{ tech:0, contenus:0, netlinking:0 },
-    p:{ visios:1, bilans:0 }
-  }),
-  makeProject({
-    id:"hydro", name:"Hydrosolutions", devis:"D262705",
-    site:"hydro-solutions.fr", siteUrl:"https://www.hydro-solutions.fr/", city:"Annecy (74)",
-    netlinkingSheet:"",
-    s:{ kickoff:"done", audit:"ongoing" },
-    o:{ tech:0, contenus:0, netlinking:0 },
-    p:{ visios:1, bilans:0 }
-  })
+// Liens utiles (barre du haut). Ajouter le Google Sheet netlinking ici quand dispo.
+const RESOURCES = [
+  { label:"🌐 detecteur-de-fuite-d-eau.com", url:"https://detecteur-de-fuite-d-eau.com/" },
+  { label:"🌐 hydro-solutions.fr", url:"https://www.hydro-solutions.fr/" }
 ];
+const NETLINKING_SHEET = ""; // ex: "https://docs.google.com/spreadsheets/d/.../edit"
+
+/* =========================================================================
+   PÉRIMÈTRES (scope)
+   ========================================================================= */
+const SCOPE = {
+  mut:     { label:"Mutualisé · 3 entités", cls:"sc-mut" },
+  hydro:   { label:"Spécifique Hydrosolutions", cls:"sc-hydro" },
+  forfait: { label:"Forfait · 3 entités", cls:"sc-forfait" }
+};
+
+/* =========================================================================
+   STRUCTURE (calée sur le budget global)
+   Statuts checklist : "todo" | "ongoing" | "done" | "na"
+   ========================================================================= */
+const SUIVI_MOIS = ["Juil. 26","Août 26","Sept. 26","Oct. 26","Nov. 26","Déc. 26","Janv. 27","Févr. 27","Mars 27","Avr. 27","Mai 27"];
+
+const PHASES = [
+  { id:"strategie", num:"1", title:"Stratégie", deliverables:[
+    { id:"kickoff", kind:"checklist", scope:"forfait", title:"Réunion de lancement", doc:"Compte-rendu", status:"done", items:[
+      {label:"Réunion de lancement", done:true},
+      {label:"Cadrage du périmètre", done:true},
+      {label:"Compte-rendu livré", done:true}
+    ]},
+    { id:"audit", kind:"checklist", scope:"hydro", title:"Audit & Stratégie SEO Hydrosolutions", status:"ongoing", items:[
+      {label:"Audit SEO et stratégie", done:false}
+    ]}
+  ]},
+  { id:"optim", num:"2", title:"Optimisations · crédit-temps", scope:"mut", deliverables:[
+    { id:"technique", kind:"metric", title:"Optimisations techniques", unit:"j", current:0, target:4.5,
+      note:"Crédit-temps mutualisé : 1,5 jour par site sur les 3 sites." },
+    { id:"contenus", kind:"metric", title:"Contenus rédigés ou optimisations GMB", unit:"", current:0, target:30 },
+    { id:"netlinking", kind:"metric", title:"Netlinking · liens locaux", unit:"liens", current:0, target:30, sheet:true,
+      note:"Enveloppe de 30 liens locaux + 2 jours de déploiement. Suivi détaillé dans le Google Sheet dédié." }
+  ]},
+  { id:"pilotage", num:"3", title:"Pilotage", scope:"mut", deliverables:[
+    { id:"suivi", kind:"monthly", title:"Suivi mensuel (hors mois de bilan)", unit:"suivis",
+      items: SUIVI_MOIS.map((m,i)=>({label:"Point "+m, done:false})) },
+    { id:"bilan", kind:"monthly", title:"Bilan de performance", unit:"bilan", doc:"Note de synthèse",
+      items:[ {label:"Bilan de performance · juin 27", done:false} ] }
+  ]},
+  { id:"outils", num:"4", title:"Outils · reporting", scope:"mut", deliverables:[
+    { id:"thot", kind:"checklist", title:"Abonnement Thot SEO", status:"done", items:[
+      {label:"Instance Thot SEO activée", done:true}
+    ]}
+  ]}
+];
+
+// Poids internes (part du budget) pour l'avancement global. Non affichés.
+const PHASE_WEIGHT = { strategie:10.4, optim:72.0, pilotage:17.2, outils:0.4 };
 
 /* =========================================================================
    STATE
    ========================================================================= */
-const STORAGE_KEY = "dtech_state_v1";
+const STORAGE_KEY = "dtech_state_v5";
 const ADMIN_KEY = "dtech_admin";
-let state = null;
-let activeId = PROJECTS[0].id;
-let ADMIN = false;
+let state=null, ADMIN=false;
 
 function loadState(){
   const saved = localStorage.getItem(STORAGE_KEY);
   if(saved){
-    try{ state = JSON.parse(saved); }
-    catch(e){ state = JSON.parse(JSON.stringify(PROJECTS)); return; }
-    // resync métadonnées non éditables (titres, structure) en préservant l'avancement
-    for(const dp of PROJECTS){
+    try{ state=JSON.parse(saved); }catch(e){ state=clone(PHASES); return; }
+    for(const dp of PHASES){
       let sp = state.find(p=>p.id===dp.id);
-      if(!sp){ state.push(JSON.parse(JSON.stringify(dp))); continue; }
-      sp.name=dp.name; sp.devis=dp.devis; sp.site=dp.site; sp.siteUrl=dp.siteUrl; sp.city=dp.city; sp.netlinkingSheet=dp.netlinkingSheet;
-      for(const dph of dp.phases){
-        const sph = sp.phases.find(x=>x.id===dph.id);
-        if(!sph){ sp.phases.push(JSON.parse(JSON.stringify(dph))); continue; }
-        sph.title=dph.title; sph.num=dph.num; sph.weight=dph.weight;
-        for(const dd of dph.deliverables){
-          const sd = sph.deliverables.find(x=>x.id===dd.id);
-          if(!sd){ sph.deliverables.push(JSON.parse(JSON.stringify(dd))); continue; }
-          sd.title=dd.title; sd.doc=dd.doc; sd.note=dd.note; sd.kind=dd.kind; sd.unit=dd.unit;
-          sd.target=dd.target; sd.sheet=dd.sheet;
-          if(sd.items && dd.items){ dd.items.forEach((it,i)=>{ if(sd.items[i]) sd.items[i].label=it.label; }); }
-        }
+      if(!sp){ state.push(clone(dp)); continue; }
+      sp.title=dp.title; sp.num=dp.num; sp.scope=dp.scope;
+      for(const dd of dp.deliverables){
+        const sd = sp.deliverables.find(x=>x.id===dd.id);
+        if(!sd){ sp.deliverables.push(clone(dd)); continue; }
+        sd.title=dd.title; sd.doc=dd.doc; sd.note=dd.note; sd.kind=dd.kind; sd.unit=dd.unit;
+        sd.target=dd.target; sd.sheet=dd.sheet; sd.scope=dd.scope;
+        if(sd.items && dd.items) dd.items.forEach((it,i)=>{ if(sd.items[i]) sd.items[i].label=it.label; });
       }
     }
-  } else {
-    state = JSON.parse(JSON.stringify(PROJECTS));
-  }
+  } else { state=clone(PHASES); }
 }
+function clone(o){ return JSON.parse(JSON.stringify(o)); }
 function saveState(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
 function resetLocal(){
   if(!confirm("Rétablir l'état tel que publié (perdre les modifications locales) ?")) return;
-  localStorage.removeItem(STORAGE_KEY);
-  state = JSON.parse(JSON.stringify(PROJECTS));
-  render();
+  localStorage.removeItem(STORAGE_KEY); state=clone(PHASES); render();
 }
 
 /* =========================================================================
    CALCULS
    ========================================================================= */
-const clamp01 = x => Math.max(0, Math.min(1, x));
-function expectedPct(){
-  const s=new Date(CONTRACT.start), e=new Date(CONTRACT.end), now=new Date();
-  return clamp01((now - s)/(e - s))*100;
-}
-function metricCurrent(d){
-  if(d.items) return d.items.filter(i=>i.done).length;
-  return d.current || 0;
-}
-function metricTarget(d){
-  if(d.items) return d.items.length;
-  return d.target || 1;
-}
-function deliverableProgress(d){
+const clamp01 = x => Math.max(0,Math.min(1,x));
+function expectedPct(){ const s=new Date(CONTRACT.start),e=new Date(CONTRACT.end),n=new Date(); return clamp01((n-s)/(e-s))*100; }
+function mCur(d){ return d.items ? d.items.filter(i=>i.done).length : (d.current||0); }
+function mTgt(d){ return d.items ? d.items.length : (d.target||1); }
+function delivProgress(d){
   if(d.kind==="checklist"){
-    if(d.status==="done") return 100;
-    if(d.status==="na") return 100;
-    if(!d.items || !d.items.length) return d.status==="ongoing"?20:0;
-    const done = d.items.filter(i=>i.done).length;
-    return done/d.items.length*100;
+    if(d.status==="done"||d.status==="na") return 100;
+    if(!d.items||!d.items.length) return d.status==="ongoing"?20:0;
+    return d.items.filter(i=>i.done).length/d.items.length*100;
   }
-  return clamp01(metricCurrent(d)/metricTarget(d))*100;
+  return clamp01(mCur(d)/mTgt(d))*100;
 }
-function phaseProgress(ph){
-  if(!ph.deliverables.length) return 0;
-  return ph.deliverables.reduce((s,d)=>s+deliverableProgress(d),0)/ph.deliverables.length;
-}
-function projectProgress(p){
-  const tw = p.phases.reduce((s,ph)=>s+(ph.weight||0),0);
-  if(!tw) return 0;
-  return p.phases.reduce((s,ph)=>s+phaseProgress(ph)*(ph.weight||0),0)/tw;
-}
+function phaseProgress(ph){ return ph.deliverables.length ? ph.deliverables.reduce((s,d)=>s+delivProgress(d),0)/ph.deliverables.length : 0; }
 function overallProgress(){
-  return state.reduce((s,p)=>s+projectProgress(p),0)/state.length;
+  let tw=0,sum=0;
+  state.forEach(ph=>{ const w=PHASE_WEIGHT[ph.id]||1; tw+=w; sum+=phaseProgress(ph)*w; });
+  return tw?sum/tw:0;
 }
 function paceOf(donePct){
-  const diff = donePct - expectedPct();
-  if(diff >= -2) return {cls:"ok", label:"Dans le rythme", fill:"fill-ok", pace:"pace-ok"};
-  if(diff >= -12) return {cls:"warn", label:"En retard", fill:"fill-warn", pace:"pace-warn"};
-  return {cls:"crit", label:"Critique", fill:"fill-crit", pace:"pace-crit"};
+  const diff=donePct-expectedPct();
+  if(diff>=-2) return {label:"Dans le rythme",fill:"fill-ok",pace:"pace-ok"};
+  if(diff>=-12) return {label:"En retard",fill:"fill-warn",pace:"pace-warn"};
+  return {label:"Critique",fill:"fill-crit",pace:"pace-crit"};
 }
-const R = x => Math.round(x);
+const R=x=>Math.round(x);
 
 /* =========================================================================
-   INTERACTIONS (mode édition uniquement)
+   INTERACTIONS (édition uniquement)
    ========================================================================= */
-function cycleStatus(pid, phid, did){
-  if(!ADMIN) return;
-  const d = find(pid,phid,did);
-  const order=["todo","ongoing","done","na"];
-  d.status = order[(order.indexOf(d.status)+1)%order.length];
-  saveState(); render();
-}
-function toggleItem(pid, phid, did, idx){
-  if(!ADMIN) return;
-  const d = find(pid,phid,did);
-  d.items[idx].done = !d.items[idx].done;
-  if(d.kind==="checklist"){
-    const all=d.items.every(i=>i.done), any=d.items.some(i=>i.done);
-    d.status = all?"done":any?"ongoing":"todo";
-  }
-  saveState(); render();
-}
-function setCounter(pid, phid, did, val){
-  if(!ADMIN) return;
-  const d = find(pid,phid,did);
-  d.current = Math.max(0, Math.min(metricTarget(d), parseFloat(val)||0));
-  saveState(); render();
-}
-function find(pid,phid,did){
-  const p=state.find(x=>x.id===pid), ph=p.phases.find(x=>x.id===phid);
-  return ph.deliverables.find(x=>x.id===did);
-}
+function find(phid,did){ const ph=state.find(x=>x.id===phid); return ph.deliverables.find(x=>x.id===did); }
+function cycleStatus(phid,did){ if(!ADMIN)return; const d=find(phid,did);
+  const o=["todo","ongoing","done","na"]; d.status=o[(o.indexOf(d.status)+1)%o.length]; saveState(); render(); }
+function toggleItem(phid,did,idx){ if(!ADMIN)return; const d=find(phid,did); d.items[idx].done=!d.items[idx].done;
+  if(d.kind==="checklist"){ const all=d.items.every(i=>i.done),any=d.items.some(i=>i.done); d.status=all?"done":any?"ongoing":"todo"; }
+  saveState(); render(); }
+function setCounter(phid,did,val){ if(!ADMIN)return; const d=find(phid,did); d.current=Math.max(0,Math.min(mTgt(d),parseFloat(val)||0)); saveState(); render(); }
 function esc(s){ return String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c])); }
 
 /* =========================================================================
    RENDER
    ========================================================================= */
 const STLABEL={todo:"À engager",ongoing:"En cours",done:"Terminé",na:"Non applicable"};
-
-function ring(pct){
-  const r=30,c=2*Math.PI*r,off=c*(1-pct/100);
-  return `<svg width="76" height="76" viewBox="0 0 76 76">
-    <circle cx="38" cy="38" r="${r}" fill="none" stroke="#eef2f5" stroke-width="8"/>
-    <circle cx="38" cy="38" r="${r}" fill="none" stroke="#ED621B" stroke-width="8" stroke-linecap="round"
-      stroke-dasharray="${c}" stroke-dashoffset="${off}"/>
-    <text x="38" y="38" text-anchor="middle" dominant-baseline="central" transform="rotate(90 38 38)"
-      style="font-size:17px;font-weight:800;fill:#003D5F">${R(pct)}%</text>
-  </svg>`;
-}
+function scopeBadge(sc){ if(!sc||!SCOPE[sc])return ""; return `<span class="scb ${SCOPE[sc].cls}">${SCOPE[sc].label}</span>`; }
 
 function renderResources(){
-  const sites = [...new Set(PROJECTS.map(p=>p.siteUrl))];
-  let html = sites.map(u=>`<a class="rlink" href="${u}" target="_blank" rel="noopener">🌐 ${esc(u.replace(/^https?:\/\/(www\.)?/,'').replace(/\/$/,''))}</a>`).join("");
-  const sheets = PROJECTS.filter(p=>p.netlinkingSheet);
-  sheets.forEach(p=> html+=`<a class="rlink" href="${p.netlinkingSheet}" target="_blank" rel="noopener">🔗 Netlinking ${esc(p.name.split(' ').slice(-1)[0])}</a>`);
-  document.getElementById("resources").innerHTML = html;
+  let html = RESOURCES.map(r=>`<a class="rlink" href="${r.url}" target="_blank" rel="noopener">${esc(r.label)}</a>`).join("");
+  if(NETLINKING_SHEET) html+=`<a class="rlink" href="${NETLINKING_SHEET}" target="_blank" rel="noopener">🔗 Suivi netlinking</a>`;
+  document.getElementById("resources").innerHTML=html;
 }
-
 function renderKpis(){
-  const overall = overallProgress();
-  const exp = expectedPct();
-  let done=0, tot=0, contDone=0, contTot=0;
-  state.forEach(p=>p.phases.forEach(ph=>ph.deliverables.forEach(d=>{
-    tot++;
-    if((d.kind==="checklist" && d.status==="done") || (d.kind!=="checklist" && metricCurrent(d)>=metricTarget(d))) done++;
-    if(d.id==="contenus"){ contDone+=metricCurrent(d); contTot+=metricTarget(d); }
-  })));
-  const oCls = overall>=exp-2?"c-green":overall>=exp-12?"c-orange":"c-orange";
-  document.getElementById("kpis").innerHTML = `
-    <div class="kpi"><div class="val ${oCls}">${R(overall)}%</div><div class="lab">Avancement moyen (3 projets)</div></div>
+  const overall=overallProgress(), exp=expectedPct();
+  let done=0,tot=0,cont=null;
+  state.forEach(ph=>ph.deliverables.forEach(d=>{ tot++;
+    if((d.kind==="checklist"&&d.status==="done")||(d.kind!=="checklist"&&mCur(d)>=mTgt(d))) done++;
+    if(d.id==="contenus") cont=d;
+  }));
+  document.getElementById("kpis").innerHTML=`
+    <div class="kpi"><div class="val c-orange">${R(overall)}%</div><div class="lab">Avancement global</div></div>
     <div class="kpi"><div class="val c-blue">${R(exp)}%</div><div class="lab">Attendu à ce jour</div></div>
-    <div class="kpi"><div class="val c-orange">${contDone}<small style="color:#54595F">/${contTot}</small></div><div class="lab">Contenus / GMB produits</div></div>
+    <div class="kpi"><div class="val c-orange">${cont?mCur(cont):0}<small style="color:#54595F">/${cont?mTgt(cont):30}</small></div><div class="lab">Contenus / GMB produits</div></div>
     <div class="kpi"><div class="val c-green">${done}<small style="color:#54595F">/${tot}</small></div><div class="lab">Livrables terminés</div></div>`;
 }
-
 function renderTempo(){
   const exp=expectedPct();
   document.getElementById("tempoExp").style.width=exp+"%";
   const mk=document.getElementById("tempoMark"); mk.style.left=exp+"%"; mk.dataset.label="Aujourd'hui ("+R(exp)+"%)";
   document.getElementById("tempoPc").textContent=R(exp)+"% de la période écoulée";
-  const lbls=["Juil. 26","Sept.","Nov.","Janv. 27","Mars","Mai","Juil. 27"];
-  document.getElementById("tempoLbl").innerHTML=lbls.map(l=>`<span>${l}</span>`).join("");
+  const l=["Juil. 26","Sept.","Nov.","Janv. 27","Mars","Mai","Juil. 27"];
+  document.getElementById("tempoLbl").innerHTML=l.map(x=>`<span>${x}</span>`).join("");
 }
-
-function renderTabs(){
-  document.getElementById("tabs").innerHTML = state.map(p=>{
-    const pr=projectProgress(p), pace=paceOf(pr);
-    return `<div class="tab ${p.id===activeId?'active':''}" onclick="selectProject('${p.id}')">
-      <div class="tn">${esc(p.name)}</div>
-      <div class="tc">${esc(p.city)} · ${esc(p.devis)}</div>
-      <div class="trow"><span class="tp">${R(pr)}%</span><span class="pace ${pace.pace}">${pace.label}</span></div>
-    </div>`;
-  }).join("");
-}
-
-function metricBar(pct, pace){
-  const exp=expectedPct();
-  return `<div class="mbar-wrap"><div class="mbar">
-      <div class="mbar-fill ${pace.fill}" style="width:${Math.max(pct,1.5)}%"></div>
-      <div class="mbar-mark" style="left:${exp}%"></div>
-    </div></div>`;
-}
-
-function renderSubs(p, ph, d, editable){
-  if(!d.items || !d.items.length) return "";
+function metricBar(pct,pace){ const exp=expectedPct();
+  return `<div class="mbar-wrap"><div class="mbar"><div class="mbar-fill ${pace.fill}" style="width:${Math.max(pct,1.5)}%"></div><div class="mbar-mark" style="left:${exp}%"></div></div></div>`; }
+function renderSubs(ph,d,ed){
+  if(!d.items||!d.items.length) return "";
   return `<ul class="subs">`+d.items.map((it,i)=>{
-    if(editable){
-      return `<li class="${it.done?'done':''}"><input type="checkbox" ${it.done?'checked':''}
-        onchange="toggleItem('${p.id}','${ph.id}','${d.id}',${i})"><span class="lb">${esc(it.label)}</span></li>`;
-    }
+    if(ed) return `<li class="${it.done?'done':''}"><input type="checkbox" ${it.done?'checked':''} onchange="toggleItem('${ph.id}','${d.id}',${i})"><span class="lb">${esc(it.label)}</span></li>`;
     return `<li class="${it.done?'done':''}"><span class="box ${it.done?'on':''}"></span><span class="lb">${esc(it.label)}</span></li>`;
   }).join("")+`</ul>`;
 }
-
-function renderDeliv(p, ph, d){
-  const editable = ADMIN;
+function renderDeliv(ph,d){
+  const ed=ADMIN;
+  const doc=d.doc?`<span class="doc">📄 ${esc(d.doc)}</span>`:"";
+  const badge=(d.scope && !ph.scope)?scopeBadge(d.scope):"";
   if(d.kind==="checklist"){
     const stCls="st-"+d.status;
-    const pill = editable
-      ? `<button class="pill click ${stCls}" onclick="cycleStatus('${p.id}','${ph.id}','${d.id}')">${STLABEL[d.status]}</button>`
-      : `<span class="pill ${stCls}">${STLABEL[d.status]}</span>`;
-    const doc = d.doc?`<span class="doc">📄 ${esc(d.doc)}</span>`:"";
-    return `<div class="deliv">
-      <div class="deliv-h"><div class="dt">${esc(d.title)}${doc}</div>${pill}</div>
-      ${renderSubs(p,ph,d,editable)}
-      ${d.note?`<div class="note">${esc(d.note)}</div>`:""}
-    </div>`;
+    const pill=ed?`<button class="pill click ${stCls}" onclick="cycleStatus('${ph.id}','${d.id}')">${STLABEL[d.status]}</button>`:`<span class="pill ${stCls}">${STLABEL[d.status]}</span>`;
+    return `<div class="deliv"><div class="deliv-h"><div class="dt">${esc(d.title)}</div>${pill}</div>${renderSubs(ph,d,ed)}${d.note?`<div class="note">${esc(d.note)}</div>`:""}</div>`;
   }
-  // metric / monthly
-  const cur=metricCurrent(d), tgt=metricTarget(d), pct=clamp01(cur/tgt)*100, pace=paceOf(pct);
-  const unit=d.unit?(" "+d.unit):"";
-  const doc=d.doc?`<span class="doc">📄 ${esc(d.doc)}</span>`:"";
-  let valHtml;
-  if(d.items){
-    valHtml=`<div class="metric-val">${cur}<small> / ${tgt}${unit}</small></div>`;
-  } else if(editable){
-    valHtml=`<div class="metric-val cnt-edit"><input type="number" min="0" step="${d.unit==='j'?'0.5':'1'}" value="${cur}"
-      onchange="setCounter('${p.id}','${ph.id}','${d.id}',this.value)"><small>/ ${tgt}${unit}</small></div>`;
-  } else {
-    valHtml=`<div class="metric-val">${cur}<small> / ${tgt}${unit}</small></div>`;
-  }
+  const cur=mCur(d),tgt=mTgt(d),pct=clamp01(cur/tgt)*100,pace=paceOf(pct),unit=d.unit?(" "+d.unit):"";
+  let val;
+  if(d.items) val=`<div class="metric-val">${cur}<small> / ${tgt}${unit}</small></div>`;
+  else if(ed) val=`<div class="metric-val cnt-edit"><input type="number" min="0" step="${d.unit==='j'?'0.5':'1'}" value="${cur}" onchange="setCounter('${ph.id}','${d.id}',this.value)"><small>/ ${tgt}${unit}</small></div>`;
+  else val=`<div class="metric-val">${cur}<small> / ${tgt}${unit}</small></div>`;
   let extra="";
-  if(d.sheet){
-    extra = p.netlinkingSheet
-      ? `<a class="detail-link" href="${p.netlinkingSheet}" target="_blank" rel="noopener">🔗 Voir le suivi netlinking détaillé</a>`
-      : `<span class="note">Lien du Google Sheet netlinking à renseigner.</span>`;
-  }
-  return `<div class="deliv">
-    <div class="deliv-h"><div class="dt">${esc(d.title)}${doc}</div>${valHtml}</div>
+  if(d.sheet) extra = NETLINKING_SHEET?`<a class="detail-link" href="${NETLINKING_SHEET}" target="_blank" rel="noopener">🔗 Voir le suivi netlinking détaillé</a>`:`<div class="note">Lien du Google Sheet netlinking à renseigner.</div>`;
+  return `<div class="deliv"><div class="deliv-h"><div class="dt">${esc(d.title)}</div>${val}</div>
     ${metricBar(pct,pace)}
     <div class="mbar-foot"><span class="rz">${R(pct)}% réalisé</span><span class="pace ${pace.pace}">${pace.label}</span></div>
-    ${d.items?renderSubs(p,ph,d,editable):""}
-    ${extra}
-    ${d.note && !d.sheet?`<div class="note">${esc(d.note)}</div>`:""}
-  </div>`;
+    ${d.items?renderSubs(ph,d,ed):""}${extra}${d.note&&!d.sheet?`<div class="note">${esc(d.note)}</div>`:""}</div>`;
 }
-
-function renderPanel(){
-  const p = state.find(x=>x.id===activeId);
-  const pr = projectProgress(p), pace=paceOf(pr);
-  let html = `<div class="panel-head">
-    <div class="pid"><div class="bar"></div><div>
-      <h2>${esc(p.name)}</h2>
-      <div class="l2">Devis <b>${esc(p.devis)}</b> · <a href="${p.siteUrl}" target="_blank" rel="noopener">${esc(p.site)}</a> · ${esc(p.city)}</div>
-    </div></div>
-    <div class="pring"><div><div class="cap">Avancement</div><div style="text-align:right"><span class="pace ${pace.pace}">${pace.label}</span></div></div>${ring(pr)}</div>
-  </div>`;
-  p.phases.forEach(ph=>{
-    html += `<div class="phase">
-      <div class="phase-title"><span class="num">${ph.num}</span><h3>${esc(ph.title)}</h3><span class="pp">${R(phaseProgress(ph))}% d'avancement</span></div>
-      ${ph.deliverables.map(d=>renderDeliv(p,ph,d)).join("")}
-    </div>`;
-  });
-  document.getElementById("panel").innerHTML = html;
-}
-
-function selectProject(id){ activeId=id; renderTabs(); renderPanel(); }
-
 function render(){
-  document.getElementById("curDate").textContent =
-    new Date().toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
-  renderResources(); renderKpis(); renderTempo(); renderTabs(); renderPanel();
+  document.getElementById("curDate").textContent=new Date().toLocaleDateString("fr-FR",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+  renderResources(); renderKpis(); renderTempo();
+  document.getElementById("content").innerHTML=state.map(ph=>`
+    <div class="phase">
+      <div class="phase-title"><span class="num">${ph.num}</span><h3>${esc(ph.title)}</h3><span class="pp">${R(phaseProgress(ph))}% d'avancement</span></div>
+      ${ph.deliverables.map(d=>renderDeliv(ph,d)).join("")}
+    </div>`).join("");
 }
 
 /* =========================================================================
-   MODE ÉDITION (Empirik) vs LECTURE (client)
+   MODE ÉDITION vs LECTURE
    ========================================================================= */
 function applyAdminUI(){
-  document.getElementById("adminBar").style.display = ADMIN?"flex":"none";
-  document.getElementById("modeTag").style.display = ADMIN?"block":"none";
-  document.getElementById("gear").style.opacity = ADMIN?"1":"";
+  document.getElementById("adminBar").style.display=ADMIN?"flex":"none";
+  document.getElementById("modeTag").style.display=ADMIN?"block":"none";
+  document.getElementById("gear").style.opacity=ADMIN?"1":"";
 }
-function toggleAdmin(){
-  ADMIN=!ADMIN;
-  localStorage.setItem(ADMIN_KEY, ADMIN?"1":"0");
-  applyAdminUI(); render();
-}
+function toggleAdmin(){ ADMIN=!ADMIN; localStorage.setItem(ADMIN_KEY,ADMIN?"1":"0"); applyAdminUI(); render(); }
 
 /* =========================================================================
    EXPORT / PUBLICATION GITHUB
    ========================================================================= */
-function projectsExport(){
-  // Sérialise l'état courant sous une forme ré-injectable dans PROJECTS.
-  return state;
-}
 function openExport(){
-  const parts=[];
-  parts.push("// Remplace le bloc PROJECTS_STATE + LAST_PUBLISHED dans index.html");
-  parts.push("");
-  parts.push(`const LAST_PUBLISHED = "${new Date().toISOString().slice(0,10)}";`);
-  parts.push("");
-  parts.push("const PROJECTS_STATE = "+JSON.stringify(state,null,2)+";");
-  document.getElementById("exportText").value = parts.join("\n");
+  const p=[]; p.push("// Remplace PHASES_STATE + LAST_PUBLISHED dans index.html"); p.push("");
+  p.push(`const LAST_PUBLISHED = "${new Date().toISOString().slice(0,10)}";`); p.push("");
+  p.push("const PHASES_STATE = "+JSON.stringify(state,null,2)+";");
+  document.getElementById("exportText").value=p.join("\n");
   document.getElementById("exportModal").style.display="flex";
   const t=localStorage.getItem(GITHUB_TOKEN_KEY);
-  document.getElementById("tokenRow").style.display = t?"none":"flex";
+  document.getElementById("tokenRow").style.display=t?"none":"flex";
   setPub(t?"Token GitHub enregistré · prêt à publier.":"Renseigne un token GitHub (fine-grained · Contents r/w) pour publier en un clic.","");
 }
 function closeExport(){ document.getElementById("exportModal").style.display="none"; }
 function copyExport(){ const t=document.getElementById("exportText"); t.select(); document.execCommand("copy"); alert("Copié."); }
-function saveToken(){
-  const v=document.getElementById("tokenInput").value.trim(); if(!v) return;
-  localStorage.setItem(GITHUB_TOKEN_KEY,v);
-  document.getElementById("tokenInput").value="";
-  document.getElementById("tokenRow").style.display="none";
-  setPub("Token enregistré.","ok");
-}
-function setPub(msg,kind){ const e=document.getElementById("pubStatus"); e.textContent=msg;
-  e.style.color=kind==="error"?"#c1500f":kind==="ok"?"#2f8f42":"#54595F"; }
+function saveToken(){ const v=document.getElementById("tokenInput").value.trim(); if(!v)return;
+  localStorage.setItem(GITHUB_TOKEN_KEY,v); document.getElementById("tokenInput").value="";
+  document.getElementById("tokenRow").style.display="none"; setPub("Token enregistré.","ok"); }
+function setPub(m,k){ const e=document.getElementById("pubStatus"); e.textContent=m; e.style.color=k==="error"?"#c1500f":k==="ok"?"#2f8f42":"#54595F"; }
 function u8b64(s){ return btoa(unescape(encodeURIComponent(s))); }
 function b64u8(b){ return decodeURIComponent(escape(atob(b.replace(/\n/g,"")))); }
-
 async function publishToGitHub(){
   const token=localStorage.getItem(GITHUB_TOKEN_KEY);
   if(!token){ document.getElementById("tokenRow").style.display="flex"; setPub("Renseigne d'abord un token GitHub.","error"); return; }
-  const btn=document.getElementById("btnPublish"); btn.disabled=true; btn.textContent="Publication…"; setPub("Récupération du fichier en ligne…","");
+  const btn=document.getElementById("btnPublish"); btn.disabled=true; btn.textContent="Publication…"; setPub("Récupération du fichier…","");
   try{
-    const get=await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=main`,
-      {headers:{Authorization:"Bearer "+token,Accept:"application/vnd.github+json"}});
+    const get=await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=main`,{headers:{Authorization:"Bearer "+token,Accept:"application/vnd.github+json"}});
     if(!get.ok){ const e=await get.json().catch(()=>({})); throw new Error("GET "+get.status+" "+(e.message||"")); }
     const fd=await get.json(); let content=b64u8(fd.content);
-    const today=new Date().toISOString().slice(0,10);
-    const stateJson=JSON.stringify(state,null,2);
+    const today=new Date().toISOString().slice(0,10), sj=JSON.stringify(state,null,2);
     const repl=[
       {re:/const LAST_PUBLISHED\s*=\s*"[^"]*";/, val:`const LAST_PUBLISHED = "${today}";`},
-      {re:/const PROJECTS_STATE\s*=\s*[\s\S]*?\n\];/m, val:`const PROJECTS_STATE = ${stateJson};`}
+      {re:/const PHASES_STATE\s*=\s*[\s\S]*?\n\];/m, val:`const PHASES_STATE = ${sj};`}
     ];
     for(const r of repl){ if(!r.re.test(content)) throw new Error("Bloc introuvable ("+r.re+")"); content=content.replace(r.re,r.val); }
     setPub("Commit en cours…","");
-    const put=await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`,{
-      method:"PUT",headers:{Authorization:"Bearer "+token,Accept:"application/vnd.github+json","Content-Type":"application/json"},
-      body:JSON.stringify({message:"publish: "+today,content:u8b64(content),sha:fd.sha,branch:"main"})
-    });
+    const put=await fetch(`https://api.github.com/repos/${GITHUB_REPO}/contents/${GITHUB_FILE}`,{method:"PUT",
+      headers:{Authorization:"Bearer "+token,Accept:"application/vnd.github+json","Content-Type":"application/json"},
+      body:JSON.stringify({message:"publish: "+today,content:u8b64(content),sha:fd.sha,branch:"main"})});
     if(!put.ok){ const e=await put.json().catch(()=>({})); throw new Error("PUT "+put.status+" "+(e.message||"")); }
     const pd=await put.json();
     setPub("✓ Publié (commit "+(pd.commit?.sha?.slice(0,7)||"?")+"). GitHub Pages rebuild dans ~1 min.","ok");
@@ -689,21 +465,17 @@ async function publishToGitHub(){
   finally{ btn.disabled=false; btn.textContent="Publier sur GitHub"; }
 }
 
-/* Snapshot publié : remplacé automatiquement par le bouton Publier.
-   Laisser null tant qu'aucune publication n'a eu lieu. */
-const PROJECTS_STATE = null;
+/* Snapshot publié : remplacé automatiquement par le bouton Publier. */
+const PHASES_STATE = null;
 
 /* =========================================================================
    INIT
    ========================================================================= */
 function init(){
-  // Le mode édition s'active via #admin dans l'URL ou via l'engrenage (mémorisé).
   ADMIN = location.hash.replace("#","")==="admin" || localStorage.getItem(ADMIN_KEY)==="1";
   loadState();
-  // Si une version publiée existe et qu'aucune édition locale n'est en cours, on l'affiche.
-  if(PROJECTS_STATE && !localStorage.getItem(STORAGE_KEY)){ state = JSON.parse(JSON.stringify(PROJECTS_STATE)); }
-  applyAdminUI();
-  render();
+  if(PHASES_STATE && !localStorage.getItem(STORAGE_KEY)) state=clone(PHASES_STATE);
+  applyAdminUI(); render();
 }
 window.addEventListener("DOMContentLoaded", init);
 </script>
